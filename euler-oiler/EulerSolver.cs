@@ -74,5 +74,58 @@ namespace euler_oiler
 
             return result.ToString();
         }
+
+        /*
+            A palindromic number reads the same both ways. 
+            The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 × 99.
+
+            Find the largest palindrome made from the product of two 3-digit numbers.
+        */
+        public string SolveProblemFour()
+        {
+            string result = "0";
+            int max = 999;
+            int min = 100;
+
+            for (int i = 999; i >= 100; i--)
+            {
+                for (int j = max; j >= min; j--)
+                {
+                    var multipleString = (i * j).ToString();
+
+                    if (multipleString.Length == 5)
+                    {
+                        if (multipleString[0] == multipleString[4] 
+                            && multipleString[1] == multipleString[3])
+                        {
+                            if (int.Parse(result) < int.Parse(multipleString))
+                            {
+                                result = multipleString;
+                                max = i;
+                                min = j;
+                            }
+                            break;
+                        }
+                    }
+
+                    if (multipleString.Length == 6)
+                    {
+                        if (multipleString[0] == multipleString[5] 
+                            && multipleString[1] == multipleString[4] 
+                            && multipleString[2] == multipleString[3])
+                        {
+                            if (int.Parse(result) < int.Parse(multipleString))
+                            {
+                                result = multipleString;
+                                max = i;
+                                min = j;
+                            }
+                            break;
+                        }
+                    }
+                }
+            }
+            return result;
+        }
     }
 }
