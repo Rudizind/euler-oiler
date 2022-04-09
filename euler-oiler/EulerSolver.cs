@@ -127,5 +127,38 @@ namespace euler_oiler
             }
             return result;
         }
+
+        /*
+            2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder.
+
+            What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
+        */
+        public string SolveProblemFive()
+        {
+            var result = string.Empty;
+            var currentNum = 2520;
+
+            var numbersToCheck = new List<int>() { 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 };
+
+            while (result == string.Empty)
+            {
+                foreach (var num in numbersToCheck)
+                {
+                    if (currentNum % num != 0)
+                    {
+                        break;
+                    }
+
+                    if (num == numbersToCheck[numbersToCheck.Count() - 1])
+                    {
+                        result = currentNum.ToString();
+                    }
+                }
+                
+                currentNum++; 
+            }
+
+            return result;
+        }
     }
 }
