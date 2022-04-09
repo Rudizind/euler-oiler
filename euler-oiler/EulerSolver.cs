@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace euler_oiler
 {
-    
     public class EulerSolver
     {
         /* 
@@ -43,7 +42,37 @@ namespace euler_oiler
         */
         public string SolveProblemTwo()
         {
-            return string.Empty;
+            int total = 0;
+            int currentFibNum = 1;
+            int previousFibNum = 0;
+
+            while (currentFibNum < 4000000) {
+                if (currentFibNum % 2 == 0)
+                {
+                    total += currentFibNum;
+                }
+
+                var oldPrevValue = previousFibNum;
+                previousFibNum = currentFibNum;
+                currentFibNum += oldPrevValue;
+            }
+
+            return total.ToString();
+        }
+
+        /*
+            The prime factors of 13195 are 5, 7, 13 and 29.
+
+            What is the largest prime factor of the number 600851475143 ?
+        */
+        public string SolveProblemThree()
+        {
+            long result = 0; 
+            long currentDividend = 600851475143;
+
+            result = MathHelper.GetHighestPrimeFactor(currentDividend);
+
+            return result.ToString();
         }
     }
 }
