@@ -34,5 +34,17 @@ namespace euler_oiler
 
             return factorList.Max();
         }
+
+        public static long GetSumOfNatNumSquares(IEnumerable<int> listOfNatNums)
+        {
+            return (long)listOfNatNums.Sum(d => Math.Pow(d, 2));
+        }
+
+        public static long GetSquareOfNatNumSums(IEnumerable<int> listOfNatNums)
+        {
+            var totalSum = listOfNatNums.Sum();
+
+            return (long)Math.Pow(totalSum, 2);
+        }
     }
 }

@@ -160,5 +160,45 @@ namespace euler_oiler
 
             return result;
         }
+
+        /*
+            The sum of the squares of the first ten natural numbers is,
+
+            The square of the sum of the first ten natural numbers is,
+
+            Hence the difference between the sum of the squares of the first ten natural numbers and the square of the sum is
+
+            (see website for description at: https://projecteuler.net/problem=6).
+
+            Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum. 
+        */
+        public string SolveProblemSix()
+        {
+            var numList = new List<int>(Enumerable.Range(1, 100));
+
+            var sumSquare = MathHelper.GetSumOfNatNumSquares(numList);
+
+            var squareSum = MathHelper.GetSquareOfNatNumSums(numList);
+
+            return Math.Abs(sumSquare - squareSum).ToString();
+        }
+
+        /*
+            By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see that the 6th prime is 13.
+
+            What is the 10 001st prime number?
+        */
+
+        public string SolveProblemSeven()
+        {
+            // number of primes found = 2 (2, 3)
+            // current prime = 3;
+            // iteration = 1;
+            // while number of primes found <= 10001 -> look at 6 * n - 1 and 6 * n + 1, check if prime
+            // number of primes found ++ if so and make current prime = the num, otherwise keep moving to next one
+            // iteration ++ after both +- 1 have been checked
+
+            return string.Empty;
+        }
     }
 }
