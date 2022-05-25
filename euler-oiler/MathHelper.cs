@@ -10,7 +10,15 @@ namespace euler_oiler
     { 
         public static long GetHighestPrimeFactor(long currentDividend)
         {
-            var factorList = new List<long>();
+            List<long> factorList = GetPrimeFactors(currentDividend);
+
+            return factorList.Max();
+        }
+
+        // gets prime factors other than itself and 1
+        public static List<long> GetPrimeFactors(long currentDividend)
+        {
+            var factorList = new List<long>() { 1 };
             var currentDivisor = 2;
             while (currentDividend > 1)
             {
@@ -32,7 +40,7 @@ namespace euler_oiler
                 }
             }
 
-            return factorList.Max();
+            return factorList;
         }
 
         public static long GetSumOfNatNumSquares(IEnumerable<int> listOfNatNums)

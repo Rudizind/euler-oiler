@@ -67,10 +67,9 @@ namespace euler_oiler
         */
         public string SolveProblemThree()
         {
-            long result = 0; 
             long currentDividend = 600851475143;
 
-            result = MathHelper.GetHighestPrimeFactor(currentDividend);
+            long result = MathHelper.GetHighestPrimeFactor(currentDividend);
 
             return result.ToString();
         }
@@ -198,7 +197,34 @@ namespace euler_oiler
             // number of primes found ++ if so and make current prime = the num, otherwise keep moving to next one
             // iteration ++ after both +- 1 have been checked
 
-            return string.Empty;
+            var primesFound = new List<int>() { 2, 3 };
+
+            int currentSixMultiple = 1;
+
+            int currentSixMultipleModifier = -1;
+
+            while (primesFound.Count() < 10001)
+            {
+                var currentPrimeCandidate = (6 * currentSixMultiple) + currentSixMultipleModifier;
+
+                var primeFactors = MathHelper.GetPrimeFactors(currentPrimeCandidate);
+
+                if (primeFactors.Distinct().Count() == 2
+                        && primeFactors.First() == 1
+                        && primeFactors.Last() == currentPrimeCandidate)
+                {
+                    primesFound.Add(currentPrimeCandidate);
+                }
+
+                if (currentSixMultipleModifier == 1)
+                {
+                    currentSixMultiple += 1;
+                }
+
+                currentSixMultipleModifier *= -1;
+            }
+
+            return primesFound.Last().ToString();
         }
     }
 }
