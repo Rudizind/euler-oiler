@@ -25,6 +25,8 @@ namespace euler_oiler
             Console.WriteLine(String.Format("6. The difference between the sum of the squares of the first" +
                                             " one hundred natural numbers and the square of their sum is {0}", EulerSolver.SolveProblemSix()));
             Console.WriteLine(String.Format("7. The 10001st prime number in sequence is {0}", EulerSolver.SolveProblemSeven()));
+            Console.WriteLine(String.Format("8. The value of the product of the thirteen adjacent digits " +
+                                            "in the 1000-digit number that have the greatest product is {0}", EulerSolver.SolveProblemEight()));
         }
     }
 }
